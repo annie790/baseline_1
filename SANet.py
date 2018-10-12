@@ -106,13 +106,6 @@ class SANet(nn.Module):
         self.branch4_4 = nn.Sequential(Conv2d( 1, 128, 64, same_padding=True, bn=True),
                                      Conv2d( 7, 64, 16, same_padding=True, bn=True))
 
-        # transposed conv
-        # self.Transposed_9 = nn.Sequential(Trans_Conv2d( 64, 64, 9, stride=(2,2), padding=(4,4),output_padding=(1,1),bn=True)
-        #                              )
-        # self.Transposed_7 = nn.Sequential(Trans_Conv2d( 64, 32, 7, stride=(2,2), padding=(3,3),output_padding=(1,1),bn=True)
-        #                              )
-        # self.Transposed_5 = nn.Sequential(Trans_Conv2d( 32, 16, 5, stride=(2,2), padding=(2,2),output_padding=(1,1),bn=True)
-        #                              )
 
         self.Transposed_9 = nn.Sequential(Conv2d( 9, 64, 64, same_padding=True, bn=True),
         nn.ConvTranspose2d( 64, 64, 2,2),
